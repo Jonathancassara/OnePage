@@ -1,0 +1,65 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: #383838;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+  }
+  .name .space {
+    width: 20px; /* ou toute autre largeur selon vos besoins */
+    animation: none; /* Pas d'animation pour l'espace, ou personnalisez selon le besoin */
+  }
+  
+  .name {
+    position: absolute;
+    top: 50%; /* Start at center vertically */
+    transform: translateY(-50%);
+    white-space: nowrap;
+  }
+  
+  /* Animation to move the name up */
+  @keyframes moveUp {
+    from {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    to {
+      top: 10px;
+      transform: translateY(0%);
+    }
+  }
+  
+  .name span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-20px);
+    font-size: 5vw; /* Responsive font size based on viewport width */
+  }
+  
+  /* Pop-in animation for each letter */
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 600px) {
+    .name span {
+      font-size: 8vw; /* Larger font size on smaller screens */
+    }
+  }
+  
